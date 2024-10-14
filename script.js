@@ -2,7 +2,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const apiUrl = 'https://gutendex.com/books';
     const bookList = document.getElementById('book-list');
     const searchBar = document.getElementById('search-bar');
+    const loader = document.getElementById('loader');
     let allBooks = [];
+
+
+    // Show loader initially
+    loader.classList.remove('hidden');
+
 
     // Fetch the books from the API
     fetch(apiUrl)
@@ -10,8 +16,10 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => {
         allBooks = data.results;
         displayBooks(allBooks);
+        loader.classList.add('hidden');
     })
     .catch(error => {
+        loader.classList.add('hidden');
         console.error('Error fetching books:', error.message || error);
         alert('An error occurred while fetching the books. Please try again later.');
     });
@@ -34,8 +42,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     // Add event listener to the search bar for real-time filtering
     searchBar.addEventListener('input', function(e) {
+        loader.classList.remove('hidden');
         const searchTerm = e.target.value.toLowerCase();
         const filteredBooks = allBooks.filter(book => book.title.toLowerCase().includes(searchTerm));
         displayBooks(filteredBooks); 
+        loader.classList.add('hidden');
     });
 });

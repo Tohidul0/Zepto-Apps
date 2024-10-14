@@ -19,9 +19,17 @@
                 type="text" 
                 id="search-bar" 
                 placeholder="Search by title..." 
-                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
+                class=" p-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
             >
         </div>
+        <div id="loader" class="flex  justify-center min-h-screen hidden">
+            <div class="relative">
+              <div class="w-16 h-16 bg-blue-500 rounded-full opacity-75 animate-ping"></div>
+              <div class="absolute inset-0 w-16 h-16 bg-blue-700 rounded-full border-4 border-white"></div>
+              <p>loading...</p>
+            </div>
+          </div>
+          
        
         <div id="book-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Books will be displayed here -->

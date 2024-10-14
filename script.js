@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let allBooks = [];
     const genreKeywords = ["Fantasy", "Fiction", "Drama", "Children", "Country", "Science Fiction", "Horror"];
 
-    // Show loader initially
+    
     loader.classList.remove('hidden');
 
 
-    // Fetch the books from the API
+    
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
@@ -43,6 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
             bookList.innerHTML += bookCard;
         });
     }
+
+    
     // Add event listener to the search bar for real-time filtering
     searchBar.addEventListener('input', function (e) {
         loader.classList.remove('hidden');

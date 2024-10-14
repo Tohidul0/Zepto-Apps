@@ -1,12 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
     const apiUrl = 'https://gutendex.com/books';
     const bookList = document.getElementById('book-list');
+    const searchBar = document.getElementById('search-bar');
+    let allBooks = [];
 
     // Fetch the books from the API
     fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-        displayBooks(data.results);
+        allBooks = data.results;
+        displayBooks(allBooks);
     })
     .catch(error => {
         console.error('Error fetching books:', error.message || error);
@@ -29,4 +32,10 @@ document.addEventListener("DOMContentLoaded", function() {
             bookList.innerHTML += bookCard;
         });
     }
+    // Add event listener to the search bar for real-time filtering
+    searchBar.addEventListener('input', function(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        const filteredBooks = allBooks.filter(book => book.title.toLowerCase().includes(searchTerm));
+        displayBooks(filteredBooks); 
+    });
 });

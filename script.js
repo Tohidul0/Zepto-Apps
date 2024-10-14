@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let genres = new Set();
     let allBooks = [];
     const genreKeywords = ["Fantasy", "Fiction", "Drama", "Children", "Country", "Science Fiction", "Horror"];
+    let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
 
     
     loader.classList.remove('hidden');
@@ -31,20 +32,43 @@ document.addEventListener("DOMContentLoaded", function () {
     function displayBooks(books) {
         bookList.innerHTML = '';
         books.forEach(book => {
+            const isWishlisted = wishlist.includes(book.id);
             const bookCard = `
-                <div class="bg-white rounded-lg shadow-md p-4">
+                <div class="bg-white rounded-lg shadow-md p-4 relative">
                     <img class="w-full h-48 object-cover" src="${book.formats['image/jpeg']}" alt="Book cover">
                     <h2 class="text-xl font-semibold mt-4">${book.title}</h2>
                     <p class="text-gray-600">Author: ${book.authors.map(author => author.name).join(', ')}</p>
                     <p class="text-gray-600">Genre: ${book.subjects[0] || 'N/A'}</p>
                     <p class="text-gray-600">ID: ${book.id}</p>
+                    <!-- Wishlist heart icon -->
+                    <span class="absolute top-4 right-4 cursor-pointer">
+                        <i class="heart-icon ${isWishlisted ? 'text-red-500' : 'text-gray-400'}" data-id="${book.id}">❤️</i>
+                    </span>
                 </div>
             `;
             bookList.innerHTML += bookCard;
         });
+        // Add click event to each heart icon
+        document.querySelectorAll('.heart-icon').forEach(icon => {
+            icon.addEventListener('click', function() {
+                const bookId = parseInt(this.getAttribute('data-id'));
+                toggleWishlist(bookId);
+                this.classList.toggle('text-red-500');
+                this.classList.toggle('text-gray-400');
+            });
+        });
+    }
+    // Function to toggle wishlist (add/remove from localStorage)
+    function toggleWishlist(bookId) {
+        if (wishlist.includes(bookId)) {
+            wishlist = wishlist.filter(id => id !== bookId); // Remove from wishlist
+        } else {
+            wishlist.push(bookId); // Add to wishlist
+        }
+        localStorage.setItem('wishlist', JSON.stringify(wishlist)); // Save wishlist to localStorage
     }
 
-    
+
     // Add event listener to the search bar for real-time filtering
     searchBar.addEventListener('input', function (e) {
         loader.classList.remove('hidden');

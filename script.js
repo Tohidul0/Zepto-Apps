@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextButton = document.getElementById('next-button');
     const pageNumbers = document.getElementById('page-numbers');
     let genres = new Set();
-    let allBooks = [];
+   
+    let allBooks = JSON.parse(localStorage.getItem('allBooks')) || [];
+    console.log(allBooks)
     let filteredBooks = [];
     const genreKeywords = ["Fantasy", "Fiction", "Drama", "Children", "Country", "Science Fiction", "Horror"];
     let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
@@ -18,7 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const booksPerPage = booksPerRow * rowsPerPage; 
     
     loader.classList.remove('hidden');
-
+    if(allBooks != []){
+            filteredBooks = allBooks; 
+            getGenres(allBooks);
+            displayBooks(filteredBooks);
+            updatePagination(filteredBooks);
+            loader.classList.add('hidden');
+    }
+    else{
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
@@ -35,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
             alert('An error occurred while fetching the books. Please try again later.');
             loader.classList.add('hidden');
         });
+    }
 
     // Function to display books
     function displayBooks(books) {

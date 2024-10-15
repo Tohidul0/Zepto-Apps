@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Display wishlisted books
     function displayWishlist(books) {
-        wishlistBooks.innerHTML = ''; // Clear the wishlist
+        wishlistBooks.innerHTML = ''; 
         books.forEach(book => {
             const bookCard = `
                 <div class="bg-white rounded-lg shadow-md p-4">

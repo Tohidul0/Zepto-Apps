@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <nav class="bg-white p-4 shadow-md">
         <div class="container mx-auto flex justify-between items-center">
@@ -17,18 +19,15 @@
             </div>
         </div>
     </nav>
-    
-    
+
+
     <main class="p-4">
         <!-- Search bar for filtering books -->
         <div class="mb-6">
-            <input 
-                type="text" 
-                id="search-bar" 
-                placeholder="Search by title..." 
-                class=" p-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500"
-            >
+            <input type="text" id="search-bar" placeholder="Search by title..."
+                class=" p-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500">
         </div>
+        <!-- Dropdown for genre filter -->
         <div class="mb-6">
             <select id="genre-filter" class=" p-2 border border-gray-300 rounded-md">
                 <option value="all">All Genres</option>
@@ -38,28 +37,28 @@
         <!-- loader -->
         <div id="loader" class="flex mt-6 justify-center min-h-screen hidden">
             <div class="relative">
-              <div class="w-16 h-16 bg-blue-500 rounded-full opacity-75 animate-ping"></div>
-              <div class="absolute inset-0 w-16 h-16 bg-blue-700 rounded-full border-4 border-white"></div>
-              <p>loading...</p>
+                <div class="w-16 h-16 bg-blue-500 rounded-full opacity-75 animate-ping"></div>
+                <div class="absolute inset-0 w-16 h-16 bg-blue-700 rounded-full border-4 border-white"></div>
+                <p>loading...</p>
             </div>
-          </div>
+        </div>
 
-          <!-- Dropdown for genre filter -->
-        
-          
-       
+
         <div id="book-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Books will be displayed here -->
         </div>
+
+
         <!-- Pagination Controls -->
-<div id="pagination" class="flex justify-center mt-6 space-x-2">
-    <button id="prev-button" class="bg-blue-500 text-white px-4 py-2 rounded-md">Previous</button>
-    <div id="page-numbers" class="flex space-x-2"></div> <!-- Numbered page buttons will go here -->
-    <button id="next-button" class="bg-blue-500 text-white px-4 py-2 rounded-md">Next</button>
-</div>
+        <div id="pagination" class="flex justify-center mt-6 space-x-2">
+            <button id="prev-button" class="bg-blue-500 text-white px-4 py-2 rounded-md">Previous</button>
+            <div id="page-numbers" class="flex space-x-2"></div> 
+            <button id="next-button" class="bg-blue-500 text-white px-4 py-2 rounded-md">Next</button>
+        </div>
 
     </main>
 
     <script src="script.js"></script>
 </body>
+
 </html>

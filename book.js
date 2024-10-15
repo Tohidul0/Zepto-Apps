@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const bookId = new URLSearchParams(window.location.search).get('id');
     const bookDetail = document.getElementById('book-detail');
 
-    const allBooks = JSON.parse(localStorage.getItem('allBooks')) || []; // Get all books from local storage
-    const book = allBooks.find(b => b.id == bookId); // Find the book with the matching ID
+    const allBooks = JSON.parse(localStorage.getItem('allBooks')) || []; 
+    const book = allBooks.find(b => b.id == bookId); 
 
     if (book) {
         const bookCard = `
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <p class="text-gray-600">Genre: ${book.subjects[0] || 'N/A'}</p>
             <p class="text-gray-600">ID: ${book.id}</p>
         `;
-        bookDetail.innerHTML = bookCard; // Display the book details
+        bookDetail.innerHTML = bookCard; 
     } else {
         bookDetail.innerHTML = `<p class="text-red-600">Book not found.</p>`;
     }

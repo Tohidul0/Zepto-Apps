@@ -3,11 +3,11 @@ button {
   }
   
   button:hover {
-    background-color: #edf2f7; /* Light gray */
+    background-color: #edf2f7; 
   }
   
   button:disabled {
-    background-color: #cbd5e0; /* Disabled gray */
+    background-color: #cbd5e0; 
     cursor: not-allowed;
   }
   

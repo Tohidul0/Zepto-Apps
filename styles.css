@@ -1,0 +1,13 @@
+button {
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #edf2f7; /* Light gray */
+  }
+  
+  button:disabled {
+    background-color: #cbd5e0; /* Disabled gray */
+    cursor: not-allowed;
+  }
+  

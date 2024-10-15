@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
             allBooks = data.results;
             filteredBooks = allBooks; 
             getGenres(allBooks);
+            localStorage.setItem('allBooks', JSON.stringify(allBooks));
             displayBooks(filteredBooks);
             updatePagination(filteredBooks);
             loader.classList.add('hidden');
@@ -45,17 +46,19 @@ document.addEventListener("DOMContentLoaded", function () {
             const isWishlisted = wishlist.includes(book.id);
             const bookCard = `
                 <div class="bg-white rounded-lg shadow-md p-4 relative transform transition-transform duration-300 hover:scale-105 hover:shadow-lg">
-                    <div class="overflow-hidden rounded-lg">
-                        <img class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110" src="${book.formats['image/jpeg']}" alt="Book cover">
-                    </div>
-                    <h2 class="text-xl font-semibold mt-4 text-gray-800 transition-colors duration-300 hover:text-indigo-600">${book.title}</h2>
-                    <p class="text-gray-500">Author: ${book.authors.map(author => author.name).join(', ')}</p>
-                    <p class="text-gray-500">Genre: ${book.subjects[0] || 'N/A'}</p>
-                    <p class="text-gray-500">ID: ${book.id}</p>
-                    <span class="absolute top-4 right-4 cursor-pointer transform transition-transform duration-300 hover:scale-125">
-                        <i class="heart-icon ${isWishlisted ? 'text-red-500' : 'text-gray-400'}" data-id="${book.id}">❤️</i>
-                    </span>
-                </div>
+        <a href="book.html?id=${book.id}">
+            <div class="overflow-hidden rounded-lg">
+                <img class="w-full h-48 object-cover transition-transform duration-300 hover:scale-110" src="${book.formats['image/jpeg']}" alt="Book cover">
+            </div>
+            <h2 class="text-xl font-semibold mt-4 text-gray-800 transition-colors duration-300 hover:text-indigo-600">${book.title}</h2>
+            <p class="text-gray-500">Author: ${book.authors.map(author => author.name).join(', ')}</p>
+            <p class="text-gray-500">Genre: ${book.subjects[0] || 'N/A'}</p>
+            <p class="text-gray-500">ID: ${book.id}</p>
+        </a>
+        <span class="absolute top-4 right-4 cursor-pointer transform transition-transform duration-300 hover:scale-125">
+            <i class="heart-icon ${isWishlisted ? 'text-red-500' : 'text-gray-400'}" data-id="${book.id}">❤️</i>
+        </span>
+    </div>
             `;
             bookList.innerHTML += bookCard;
         });

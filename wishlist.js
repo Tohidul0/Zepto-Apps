@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
             wishlistContaineroops.classList.remove('hidden');
             wishlistContaineroops.innerHTML = `
                 <div class="flex flex-col items-center justify-center mx-auto mt-6">
-                    <img src="image.webp" alt="Empty Wishlist" class="w-32 h-32 mb-4" />
+                    <img src="image.jpg" alt="Empty Wishlist" class="w-32 h-32 mb-4" />
                     <h2 class="text-gray-500 bg-green-400 p-4 rounded-lg text-center">
                         Oops!!! You have not yet added any books to your wishlist.
                     </h2>

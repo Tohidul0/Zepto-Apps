@@ -34,14 +34,18 @@
           type="text"
           id="search-bar"
           placeholder="Search by title..."
-          class=" p-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 shadow-sm"
+          class="flex-grow p-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 shadow-sm"
         />
       
         <!-- Dropdown for genre filter -->
-        <select id="genre-filter" class="p-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 shadow-sm">
+        <select
+          id="genre-filter"
+          class="p-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 shadow-sm"
+        >
           <option value="all">All Genres</option>
         </select>
       </div>
+      
       
 
       <!-- loader -->
@@ -53,7 +57,7 @@
           <div
             class="absolute inset-0 w-16 h-16 bg-blue-700 rounded-full border-4 border-white"
           ></div>
-          <p>loading...</p>
+          <p class="mx-auto">loading...</p>
         </div>
       </div>
 

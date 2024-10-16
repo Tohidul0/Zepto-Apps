@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const wishlistBooks = JSON.parse(localStorage.getItem('wishlist')) || [];
     const allBooks = JSON.parse(localStorage.getItem('allBooks')) || [];
     const wishlistContainer = document.getElementById('wishlist-books');
+    const wishlistContaineroops = document.getElementById('oops');
     const pagination = document.getElementById('pagination');
     const prevButton = document.getElementById('prev-button');
     const nextButton = document.getElementById('next-button');
@@ -16,8 +17,17 @@ document.addEventListener("DOMContentLoaded", function() {
         const booksPerPage = booksPerRow * rowsPerPage;
         wishlistContainer.innerHTML = ''; 
 
+
         if (wishlistBooks.length === 0) {
-            wishlistContainer.innerHTML = '<h2 class="text-gray-500 mx-auto mt-6 bg-green-400">Your wishlist is empty.</h2>';
+            wishlistContaineroops.classList.remove('hidden');
+            wishlistContaineroops.innerHTML = `
+                <div class="flex flex-col items-center justify-center mx-auto mt-6">
+                    <img src="image.webp" alt="Empty Wishlist" class="w-32 h-32 mb-4" />
+                    <h2 class="text-gray-500 bg-green-400 p-4 rounded-lg text-center">
+                        Oops!!! You have not yet added any books to your wishlist.
+                    </h2>
+                </div>
+            `;
             pagination.classList.add('hidden');
             return;
         }

@@ -85,9 +85,9 @@ document.addEventListener("DOMContentLoaded", function () {
         <span class="font-semibold">ID:</span> ${book.id}
     </p>
 
-    <div class="flex justify-between items-center">
+    <div class="flex justify-between items-center p-1">
         <span class="cursor-pointer text-2xl text-gray-700 hover:text-red-500 transition-colors duration-300" onclick="toggleWishlist(${book.id})">
-            ${isWishlisted}
+            <span class = "text-base">Add to Wishlist </span>${isWishlisted}
         </span>
         <a href="book.html?id=${book.id}" class="text-blue-500 hover:text-blue-600 transition-colors duration-300 underline">
             View Details
@@ -225,3 +225,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+

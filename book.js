@@ -7,8 +7,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (book) {
         const bookCard = `
-          <section class="relative w-full min-h-screen bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white py-10">
-  <div class="container mx-auto flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-16 p-6 animate-fade-in">
+          <section class="rounded-[20px] relative w-full min-h-screen bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white py-10">
+  <div class=" container mx-auto flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-16 p-6 animate-fade-in">
     
     <!-- Book Cover Image -->
     <div class="w-full lg:w-1/3 h-auto max-h-96 overflow-hidden flex items-center justify-center">

@@ -28,23 +28,24 @@
     
 
     <main class="p-4">
-      <div class="mb-6 mx-4 flex items-center justify-center space-x-4">
+      <div class="mb-6 mx-4 sm:mx-10 flex flex-col sm:flex-row items-center justify-center sm:space-x-4 space-y-4 sm:space-y-0">
         <!-- Search bar for filtering books -->
         <input
           type="text"
           id="search-bar"
           placeholder="Search by title..."
-          class="flex-grow p-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 shadow-sm"
+          class="w-full sm:flex-grow p-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 shadow-sm"
         />
       
         <!-- Dropdown for genre filter -->
         <select
           id="genre-filter"
-          class="p-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 shadow-sm"
+          class="w-full sm:w-auto p-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 shadow-sm"
         >
           <option value="all">All Genres</option>
         </select>
       </div>
+      
       
       
 

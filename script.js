@@ -194,6 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 currentPage = i;
                 displayBooks(books);
                 updatePagination(books);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
             pageNumbers.appendChild(pageButton);
@@ -209,6 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
             currentPage--;
             displayBooks(filteredBooks);
             updatePagination(filteredBooks);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     });
 
@@ -219,6 +221,7 @@ document.addEventListener("DOMContentLoaded", function () {
             currentPage++;
             displayBooks(filteredBooks);
             updatePagination(filteredBooks);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     });
 });

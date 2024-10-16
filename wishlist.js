@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
             pageButton.addEventListener('click', function () {
                 currentPage = i;
                 displayWishlist();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
             pageNumbers.appendChild(pageButton);
@@ -102,6 +103,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (currentPage > 1) {
             currentPage--;
             displayWishlist();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     });
 
@@ -114,6 +116,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (currentPage < totalPages) {
             currentPage++;
             displayWishlist();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     });
 

@@ -1,64 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book list</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
 
-<body>
-    <nav class="bg-white p-4 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Book App</h1>
-            <div>
-                <a href="index.html" class="text-gray-600 hover:text-blue-500 mx-4">Home</a>
-                <a href="wishlist.html" class="text-gray-600 hover:text-blue-500">Wishlist</a>
-            </div>
+  <body class = "bg-gradient-to-br from-orange-400 via-pink-500 to-red-600
+  ">
+    <nav class="bg-white p-4 shadow-md fixed w-full top-0 z-10">
+      <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo / Brand -->
+        <h1 class="text-3xl font-extrabold text-indigo-600">BookApp</h1>
+    
+        <!-- Navigation Links -->
+        <div class="space-x-6">
+          <a href="index.html" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 font-medium">Home</a>
+          <a href="wishlist.html" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 font-medium">Wishlist</a>
         </div>
+      </div>
     </nav>
-
+    
 
     <main class="p-4">
+      <div class="mb-6 mx-4 flex items-center justify-center space-x-4">
         <!-- Search bar for filtering books -->
-        <div class="mb-6">
-            <input type="text" id="search-bar" placeholder="Search by title..."
-                class=" p-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500">
-        </div>
+        <input
+          type="text"
+          id="search-bar"
+          placeholder="Search by title..."
+          class=" p-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 shadow-sm"
+        />
+      
         <!-- Dropdown for genre filter -->
-        <div class="mb-6">
-            <select id="genre-filter" class=" p-2 border border-gray-300 rounded-md">
-                <option value="all">All Genres</option>
-            </select>
+        <select id="genre-filter" class="p-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500 shadow-sm">
+          <option value="all">All Genres</option>
+        </select>
+      </div>
+      
+
+      <!-- loader -->
+      <div id="loader" class="flex mt-6 justify-center min-h-screen hidden">
+        <div class="relative">
+          <div
+            class="w-16 h-16 bg-blue-500 rounded-full opacity-75 animate-ping"
+          ></div>
+          <div
+            class="absolute inset-0 w-16 h-16 bg-blue-700 rounded-full border-4 border-white"
+          ></div>
+          <p>loading...</p>
         </div>
+      </div>
 
-        <!-- loader -->
-        <div id="loader" class="flex mt-6 justify-center min-h-screen hidden">
-            <div class="relative">
-                <div class="w-16 h-16 bg-blue-500 rounded-full opacity-75 animate-ping"></div>
-                <div class="absolute inset-0 w-16 h-16 bg-blue-700 rounded-full border-4 border-white"></div>
-                <p>loading...</p>
-            </div>
-        </div>
-
-
-        <div id="book-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Books will be displayed here -->
-        </div>
+      <div
+  id="book-list"
+  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+>
+  <!-- Books will be displayed here -->
+</div>
 
 
-        <!-- Pagination Controls -->
-        <div id="pagination" class="flex justify-center mt-6 space-x-2">
-            <button id="prev-button" class="bg-blue-500 text-white px-4 py-2 rounded-md">Previous</button>
-            <div id="page-numbers" class="flex space-x-2"></div> 
-            <button id="next-button" class="bg-blue-500 text-white px-4 py-2 rounded-md">Next</button>
-        </div>
+      <!-- Pagination Controls -->
+<div id="pagination" class="flex flex-wrap justify-center mt-6 space-x-2">
+  <button
+    id="prev-button"
+    class="bg-blue-500 text-white px-4 py-2 rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
+  >
+    Previous
+  </button>
+  
+  <div id="page-numbers" class="flex space-x-2 flex-wrap justify-center"></div>
+  
+  <button
+    id="next-button"
+    class="bg-blue-500 text-white px-4 py-2 rounded-md disabled:opacity-50 disabled:cursor-not-allowed"
+  >
+    Next
+  </button>
+</div>
 
     </main>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

@@ -7,48 +7,53 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (book) {
         const bookCard = `
-           <section class="relative w-full h-screen bg-gradient-to-r from-purple-400 to-indigo-600 text-white">
-  <div class="absolute inset-0 flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-12 p-6 animate-fade-in">
+          <section class="relative w-full min-h-screen bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white py-10">
+  <div class="container mx-auto flex flex-col lg:flex-row items-center justify-center space-y-8 lg:space-y-0 lg:space-x-16 p-6 animate-fade-in">
     
     <!-- Book Cover Image -->
-    <div class="w-full lg:w-1/2 h-96 overflow-hidden">
-      <img class="w-full h-full object-cover object-center rounded-xl shadow-lg transition-transform duration-500 hover:scale-110" 
-           src="${book.formats['image/jpeg'] || book.formats['image/png']}"  
-           alt="Book cover">
+    <div class="w-full lg:w-1/3 h-auto max-h-96 overflow-hidden flex items-center justify-center">
+      <div class="relative">
+        <img class="max-w-full max-h-full object-contain rounded-lg transition-transform duration-500 hover:scale-105" 
+             src="${book.formats['image/jpeg'] || book.formats['image/png']}"  
+             alt="Book cover">
+        <div class="absolute inset-0 rounded-lg border-2 border-gray-200 shadow-xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl"></div>
+      </div>
     </div>
     
     <!-- Book Information -->
-    <div class="w-full lg:w-1/2 space-y-4">
+    <div class="w-full lg:w-2/3 space-y-4 text-center lg:text-left">
       <!-- Book Title -->
-      <h2 class="text-4xl font-bold tracking-wide animate-pulse">${book.title}</h2>
+      <h2 class="text-5xl font-extrabold tracking-wide text-gray-100 animate-pulse">
+        ${book.title}
+      </h2>
       
       <!-- Author -->
-      <p class="text-xl">
-        <span class="font-semibold">Author:</span> ${book.authors.map(author => author.name).join(', ')}
+      <p class="text-xl text-gray-300">
+        <span class="font-semibold text-white">Author:</span> ${book.authors.map(author => author.name).join(', ')}
       </p>
       
       <!-- Genre -->
-      <p class="text-lg">
-        <span class="font-semibold">Genre:</span> ${book.subjects[0] || 'N/A'}
+      <p class="text-lg text-gray-300">
+        <span class="font-semibold text-white">Genre:</span> ${book.subjects[0] || 'N/A'}
       </p>
       
       <!-- Languages -->
-      <p class="text-lg">
-        <span class="font-semibold">Languages:</span> ${book.languages.join(', ')}
+      <p class="text-lg text-gray-300">
+        <span class="font-semibold text-white">Languages:</span> ${book.languages.join(', ')}
       </p>
       
       <!-- Media Type -->
-      <p class="text-lg">
-        <span class="font-semibold">Media Type:</span> ${book.media_type}
+      <p class="text-lg text-gray-300">
+        <span class="font-semibold text-white">Media Type:</span> ${book.media_type}
       </p>
       
       <!-- Download Count -->
-      <p class="text-lg">
-        <span class="font-semibold">Download Count:</span> ${book.download_count}
+      <p class="text-lg text-gray-300">
+        <span class="font-semibold text-white">Download Count:</span> ${book.download_count}
       </p>
       
       <!-- Book ID -->
-      <p class="text-sm text-gray-300">
+      <p class="text-sm text-gray-500 italic">
         Book ID: ${book.id}
       </p>
     </div>
@@ -65,6 +70,7 @@ document.addEventListener("DOMContentLoaded", function() {
     animation: fade-in 1.5s ease-in-out;
   }
 </style>
+
 
             
         `;

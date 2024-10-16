@@ -10,4 +10,28 @@ button {
     background-color: #cbd5e0; 
     cursor: not-allowed;
   }
+
+  body {
+    background: white; /* Gradient background */
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Styling for main content section */
+  main {
+    /* Transparent white background */
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 80px; /* Spacing below the fixed navbar */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Style for the book cards */
+  #book-list .book-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #book-list .book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  }
   
